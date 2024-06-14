@@ -1,0 +1,16 @@
+{
+  "name": "harman-website",
+  "version": "1.0.0",
+  "description": "Real estate website with MERN stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "test"
+  },
+  "author": "example_user",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
