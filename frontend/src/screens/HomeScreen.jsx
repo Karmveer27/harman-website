@@ -1,7 +1,8 @@
+import Hero from '../components/Hero'
 function HomeScreen(){
     return (
         <>
-            HomeScreen
+            <Hero />
         </>
     )
 }
