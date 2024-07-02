@@ -1,17 +1,25 @@
 import './App.css';
 import Nav from './components/Header/index.jsx';
-import Footer from './components/Footer.jsx';
+import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
+import {Row,Col} from "react-bootstrap"
 
 function App() {
     return (
-        <div className="flex flex-col min-h-screen">
+        <>
+        
+        <Row>
+            <Col md={12} sd={12}>
             <Nav />
-            <main className="flex-grow">
-                    <Outlet />   
-            </main>
-            <Footer />
-        </div>
+            </Col>
+            <Col md={12} sd={12}>
+                <Outlet />  
+            </Col>
+            <Col md={12} sd={12}>
+             <Footer />
+            </Col>
+        </Row>
+        </>
     );
 }
 
