@@ -9,13 +9,16 @@ function Hero() {
        
 
         <Row>
-                <Col ld={6} sd={12}>
+                <Col lg={6} md={12} className="pb-3">
                             <h1 className="font-weight-bold pb-3">Have Any Questions?</h1>
                             <p className="text-muted text-left">
                                 Lorem ipsum dolor sit amet, consectetur sadipscing elitr, sed diam nonumy eirmod tempor Lorem ipsum dolor sit amet consectetur sadipscing elitr
                             </p>
+                            <div className="d-flex justify-content-start ">
+                                <button className="btn btn-warning btn-lg">Contact us</button>
+                            </div>
                 </Col>
-                <Col ld={6} sd={12}>
+                <Col lg={6} md={12}>
                     <img src="/suit.jpg" alt="Contact" className="img-fluid rounded" />
                 </Col>
 

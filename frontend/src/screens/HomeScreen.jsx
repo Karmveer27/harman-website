@@ -3,6 +3,7 @@ function HomeScreen(){
     return (
         <>
             <Hero />
+            
         </>
     )
 }

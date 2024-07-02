@@ -10,13 +10,13 @@ function App() {
         
         <Row>
             <Col md={12} sd={12}>
-            <Nav />
+                <Nav />
             </Col>
             <Col md={12} sd={12}>
                 <Outlet />  
             </Col>
             <Col md={12} sd={12}>
-             <Footer />
+                 <Footer />
             </Col>
         </Row>
         </>

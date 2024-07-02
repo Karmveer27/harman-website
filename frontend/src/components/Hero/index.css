@@ -24,3 +24,7 @@ p {
     background-color: #e0a800;
     border: none;
 }
+img{
+    min-height: 500px;
+    width: auto;
+}
