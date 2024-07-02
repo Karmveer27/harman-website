@@ -6,9 +6,9 @@ import './index.css';
 
 function Footer(){
     return(
-        <Navbar expand="lg" className="bg-body-tertiary fixed-bottom">
+        <Navbar expand="lg" className="bg-body-tertiary sticky-bottom">
         <Container>
-            <p>Harman</p>
+            <h2>Footer</h2>
             
         </Container>
     </Navbar>

@@ -1,5 +1,6 @@
 img{
     max-width: 300px;
+    max-height: 00px;
 }
 @media screen and (max-width: 768px) {
     img{
