@@ -1,9 +1,9 @@
-import Hero from '../components/Hero'
-import LatestWork from '../components/LatestWork';
+import Hero from '../../components/Hero'
+import LatestWork from '../../components/LatestWork';
 function HomeScreen(){
     return (
         <>
-            {/* <Hero /> */}
+            <Hero />
             <LatestWork />
             
         </>

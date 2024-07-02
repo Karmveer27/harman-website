@@ -1,7 +1,5 @@
 
-.min-h-screen {
-    min-height: 100vh;
-}
+
 
 h1 {
     font-size: 3rem;
@@ -27,4 +25,15 @@ p {
 img{
     min-height: 500px;
     width: auto;
+}
+
+.hero-padding {
+    padding-top: 60px; 
+    padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .hero-padding {
+        padding-top: 100px; 
+    }
 }
