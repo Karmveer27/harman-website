@@ -1,0 +1,26 @@
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+    padding-bottom: 1rem; 
+}
+
+p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border: none;
+}
