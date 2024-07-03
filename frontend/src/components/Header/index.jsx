@@ -13,8 +13,8 @@ function Header() {
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary fixed-top">
-            <Container>
-                <Navbar.Brand href="#home" className="me-auto">Harman Singh</Navbar.Brand>
+            <Container fluid>
+                <Navbar.Brand href="#home" className="ms-3">Harman Singh</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
@@ -26,32 +26,11 @@ function Header() {
                             About Us
                         </Nav.Link>
                         <Nav.Link
-                            href="#sell"
-                            className={activeLink === '#sell' ? 'active' : ''}
-                            onClick={() => handleSetActiveLink('#sell')}
+                            href="#latest-work"
+                            className={activeLink === '#latest-work' ? 'active' : ''}
+                            onClick={() => handleSetActiveLink('#latest-work')}
                         >
-                            Sell
-                        </Nav.Link>
-                        <Nav.Link
-                            href="#buy"
-                            className={activeLink === '#buy' ? 'active' : ''}
-                            onClick={() => handleSetActiveLink('#buy')}
-                        >
-                            Buy
-                        </Nav.Link>
-                        <Nav.Link
-                            href="#rent"
-                            className={activeLink === '#rent' ? 'active' : ''}
-                            onClick={() => handleSetActiveLink('#rent')}
-                        >
-                            Rent
-                        </Nav.Link>
-                        <Nav.Link
-                            href="#latest"
-                            className={activeLink === '#latest' ? 'active' : ''}
-                            onClick={() => handleSetActiveLink('#latest')}
-                        >
-                            Latest Work
+                            Our Latest Work
                         </Nav.Link>
                         <Nav.Link
                             href="#testimonials"
@@ -59,6 +38,22 @@ function Header() {
                             onClick={() => handleSetActiveLink('#testimonials')}
                         >
                             Testimonials
+                        </Nav.Link>
+                        <Nav.Link
+                            href="#properties"
+                            className={activeLink === '#properties' ? 'active' : ''}
+                            onClick={() => handleSetActiveLink('#properties')}
+                        >
+                            Properties
+                        </Nav.Link>
+                    </Nav>
+                    <Nav className="ms-auto me-3">
+                        <Nav.Link
+                            href="#contact"
+                            className="nav-link-no-underline"
+                            onClick={() => handleSetActiveLink('#')}
+                        >
+                            <button className="btn btn-warning btn-md">Contact us</button>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
