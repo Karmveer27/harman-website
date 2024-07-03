@@ -1,15 +1,11 @@
 import {Row,Col} from 'react-bootstrap'
 import "../WorkCard/index.css"
-function WorkCard({imgSrc}){
+function WorkCard({imgSrc,description}){
     return (
-        <Row>
-                <Col lg={12}>
-                    <img src={imgSrc}/>
-                </Col>
-                <Col lg={12}>
-                    Great house come by and take a look or a viewing!
-                </Col>
-        </Row>
+            <div className="work-card">
+                <img src={imgSrc} alt="Work 1" className="img-fluid rounded" />
+                <p>{description}</p>
+            </div>
     )
 }
 
