@@ -14,12 +14,12 @@ function Header() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary fixed-top">
             <Container fluid>
-                <Navbar.Brand href="#home" className="ms-3">Harman Singh</Navbar.Brand>
+                <Navbar.Brand href="/" className="ms-3">Harman Singh</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
                         <Nav.Link
-                            href="#about"
+                            href="/"
                             className={activeLink === '#about' ? 'active' : ''}
                             onClick={() => handleSetActiveLink('#about')}
                         >
@@ -49,7 +49,7 @@ function Header() {
                     </Nav>
                     <Nav className="ms-auto me-3">
                         <Nav.Link
-                            href="#contact"
+                            href="/contact"
                             className="nav-link-no-underline"
                             onClick={() => handleSetActiveLink('#')}
                         >

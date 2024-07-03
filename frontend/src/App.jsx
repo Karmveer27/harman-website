@@ -1,26 +1,22 @@
-import './App.css';
-import Nav from './components/Header/index.jsx';
+import React from 'react';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
-import {Row,Col} from "react-bootstrap"
+import { Container } from 'react-bootstrap';
+import './App.css';
 
-function App() {
-    return (
-        <>
-        
-        <Row>
-            <Col md={12} sd={12}>
-                <Nav />
-            </Col>
-            <Col md={12} sd={12}>
-                <Outlet />  
-            </Col>
-            <Col md={12} sd={12}>
-                 <Footer />
-            </Col>
-        </Row>
-        </>
-    );
+const App = () => {
+  return (
+    <div className='d-flex flex-column min-vh-100'>
+      <Header />
+      <main className='flex-grow-1'>
+        <Container className=''>
+          <Outlet />
+        </Container>
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
