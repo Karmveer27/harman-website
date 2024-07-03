@@ -1,0 +1,18 @@
+.dark-card {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    height: 20rem;
+}
+
+.dark-card .product-title {
+    color: #fff;
+}
+
+.dark-card p {
+    color: #ddd;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}

@@ -9,7 +9,7 @@ function Hero() {
             <Col lg={6} md={12} className="mb-4 mb-lg-0">
                 <h1 className="font-weight-bold pb-3">Have Any Questions?</h1>
                 <p className="text-muted text-left">
-                    Lorem ipsum dolor sit amet, consectetur sadipscing elitr, sed diam nonumy eirmod tempor Lorem ipsum dolor sit amet consectetur sadipscing elitr.
+                Harman Singh, an enthusiastic and devoted real estate professional, has joined the industry with a heartfelt mission: to assist individuals in discovering their dream homes and achieving their real estate aspirations in Auckland. 
                 </p>
                 <div className="d-flex justify-content-start">
                     <button className="btn btn-warning btn-lg">Contact us</button>
