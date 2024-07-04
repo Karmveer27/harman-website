@@ -13,6 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-nav{
-  padding-bottom: 100px;
+
+/* Make sure to include these styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
 }

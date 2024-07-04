@@ -6,7 +6,7 @@ import './index.css';
 
 function Footer(){
     return(
-        <Navbar expand="lg" className="bg-body-tertiary sticky-bottom">
+    <Navbar expand="lg" className="bg-body-tertiary sticky-bottom">
         <Container>
             <h2>Footer</h2>
             
