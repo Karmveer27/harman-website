@@ -9,12 +9,8 @@ function Contact() {
     return (
         <>
         <div className='py-3'>
-            <Row className='py-5'>
-                <Col lg={5} className="py-5 d-flex justify-content-center align-items-center">
-                    <div className="image-container">
-                        <img src="suit1.jpg" alt="Enquire" className='img-fluid rounded' />
-                    </div>
-                </Col>
+            <Row className='py-5 d-flex align-items-center min-vh-100 '>
+                
                 <Col lg={7} className="py-lg-5">
                     <h1 className='text-left'>Enquire</h1>
                     <span className='text-left pb-3 d-flex  align-items-center'>  
@@ -23,6 +19,11 @@ function Contact() {
                     </span>
 
                     <ContactForm />
+                </Col>
+                <Col lg={5} className="py-5 d-flex justify-content-center align-items-center ">
+                    <div className="image-container">
+                        <img src="suit1.jpg" alt="Enquire" className='img-fluid rounded' />
+                    </div>
                 </Col>
             </Row>
         </div>

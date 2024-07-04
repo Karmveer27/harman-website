@@ -1,9 +1,10 @@
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React from 'react';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import "./index.css";  
 
 function ContactForm() {
     return (
-        <Form>
+        <Form className="contact-form-container">
             <Row>
                 <Col lg={6}>
                     <Form.Group controlId="formFirstName">
@@ -27,23 +28,21 @@ function ContactForm() {
                 </Col>
                 <Col lg={6}>
                     <Form.Group controlId="formSubject">
-                    <Form.Label className="text-left"><h4>Subject</h4></Form.Label>
+                        <Form.Label className="text-left"><h4>Subject</h4></Form.Label>
                         <Form.Control as="select" defaultValue="General Enquiry">
                             <option>General Enquiry</option>
                             <option>Purchase</option>
                             <option>Sell</option>
                             <option>Appraisal</option>
                         </Form.Control>
-                     </Form.Group>
+                    </Form.Group>
                 </Col>
-
             </Row>
-            
             <Form.Group controlId="formMessage">
                 <Form.Label className="text-left"><h4>Your Message</h4></Form.Label>
                 <Form.Control as="textarea" rows={3} placeholder="Enter your question or message" />
             </Form.Group>
-            <Button variant="dark" type="submit" className="mt-3 w-100">
+            <Button variant="dark" type="submit" className="mt-0 w-100">
                 Submit
             </Button>
         </Form>

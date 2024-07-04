@@ -1,18 +1,32 @@
 .work-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
+   
+    padding-right: 20px;
+    justify-content: center;
+    
 }
 
-.work-card img {
+.image-container {
     width: 100%;
-    height: auto;
-    max-height: 300px; 
-    object-fit: cover;
+    height: 400px; /* I can change this for height*/
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    
+}
+.p-container{
+    width: 380px;
+    p{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 450;
+    text-align: center;
+    opacity: 0.5;
+    }
 }
 
-.work-card p {
-    margin-top: 1rem;
-    font-size: 1rem;
+.image-container img {
+    height: 100%;
+    width: auto;
 }

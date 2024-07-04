@@ -1,7 +1,7 @@
 .contact-form-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
+   
 }
 
 .contact-form-container h1 {
@@ -35,5 +35,6 @@ h4{
     font-size: 15px;
 }
 .form-control{
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
+

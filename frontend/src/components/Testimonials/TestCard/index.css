@@ -11,6 +11,10 @@
 
 .dark-card p {
     color: #ddd;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 350;
+    text-align: center;
 }
 
 .mb-4 {

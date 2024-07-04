@@ -13,7 +13,7 @@ function LatestWork() {
        },
        "h2" : {
            "src" : "suit2.jpg",
-           "description" : "Dont miss out on this amazing oppurtunity!"
+           "description" : "Dont miss out on this amazing oppurtunity!Dont miss out on this amazing oppurtunity!Dont miss out on this amazing oppurtunity!"
        },
        "h3" : {
            "src" : "suit.jpg",
@@ -59,4 +59,3 @@ function LatestWork() {
 }
 
 export default LatestWork;
-
