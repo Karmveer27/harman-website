@@ -15,7 +15,7 @@ function Hero() {
                     <button className="btn btn-warning btn-lg">Contact us</button>
                 </div>
             </Col>
-            <Col lg={6} md={12} className="text-center work-card">
+            <Col lg={6} md={12} className="text-center hero-work-card">
                 <img src="/suit.jpg" alt="Contact" className="img-fluid rounded" />
             </Col>
         </Row>

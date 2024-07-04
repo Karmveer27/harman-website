@@ -1,20 +1,33 @@
-img{
+img {
     height: 200px;
 }
-i{
+
+i {
     font-size: 1.5rem;
     padding-bottom: 5px;
 }
-h3{
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
     font-size: 2rem;
 }
-h1{
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
     font-weight: bold;
+}
+
+h4 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
 }
 
 .image-container {
     width: 100%;
-    padding-top: 100%; 
+    padding-top: 100%; /* Maintains the aspect ratio */
     position: relative;
     overflow: hidden;
     background: #f0f0f0;
@@ -27,4 +40,44 @@ h1{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.contact-form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    
+}
+
+.contact-form-container h1 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.phone-number {
+    font-size: 1.2rem;
+  
+}
+
+.phone-number i {
+    margin-right: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-left {
+    display: block;
+    text-align: left !important;
+    
+}
+
+
+
+.min-vh-100 {
+    min-height: 100vh;
 }
