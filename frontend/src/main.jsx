@@ -7,12 +7,14 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import HomeScreen from "./screens/HomeScreen";
 import TestScreen from "./screens/TestScreen.jsx";
 import Contact from './screens/Contact/index.jsx';
+import Properties from './screens/Properties/index.jsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/"  element={<App />}>
             <Route index={true} element={<HomeScreen />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/properties" element={<Properties />} />
             <Route path={"/test"} element={<TestScreen />} />
         </Route>
     )
