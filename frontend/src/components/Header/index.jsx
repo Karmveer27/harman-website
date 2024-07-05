@@ -20,13 +20,13 @@ function Header() {
                         <Nav.Link as={Link} to="/#about" onClick={() => handleSetActiveLink('#about')}>
                             About Us
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/#work" onClick={() => handleSetActiveLink('#latest-work')}>
+                        <Nav.Link as={Link} to="/#work" onClick={() => handleSetActiveLink('#work')}>
                             Our Latest Work
                         </Nav.Link>
                         <Nav.Link as={Link} to="/#testimonials" onClick={() => handleSetActiveLink('#testimonials')}>
                             Testimonials
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/#properties" onClick={() => handleSetActiveLink('#properties')}>
+                        <Nav.Link as={Link} to="/properties" onClick={() => handleSetActiveLink('#properties')}>
                             Properties
                         </Nav.Link>
                     </Nav>
