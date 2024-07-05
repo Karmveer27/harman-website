@@ -41,7 +41,7 @@ function LatestWork() {
 
             <Row className="d-flex d-lg-none">
                 <Col>
-                    <Carousel id="carouselExampleInterval">
+                    <Carousel id="carouselExampleInterval" data-bs-theme="dark">
                         <Carousel.Item interval={2000} className="carousel-item">
                             <WorkCard imgSrc={tempData.h1.src} description={tempData.h1.description} />
                         </Carousel.Item>
