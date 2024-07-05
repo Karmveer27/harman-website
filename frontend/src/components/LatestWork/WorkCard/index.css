@@ -1,29 +1,32 @@
 .work-card {
-   
     padding-right: 20px;
     justify-content: center;
-    
 }
 
 .image-container {
     width: 100%;
-    height: 400px; /* I can change this for height*/
+    height: 400px; /* You can change this for height */
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
-    
 }
-.p-container{
-    width: 380px;
-    p{
+
+.p-container {
+    max-width: 100%;
+    min-height: 250px;
+    padding: 0 15px; 
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+.p-container p {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 450;
     text-align: center;
     opacity: 0.5;
-    }
 }
 
 .image-container img {
