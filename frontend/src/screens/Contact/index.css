@@ -25,7 +25,7 @@ h4 {
     font-weight: 600;
 }
 
-.image-container {
+.c-image-container {
     width: 100%;
     padding-top: 100%; /* Maintains the aspect ratio */
     position: relative;
@@ -33,7 +33,7 @@ h4 {
     background: #f0f0f0;
 }
 
-.image-container img {
+.c-image-container img {
     position: absolute;
     top: 0;
     left: 0;

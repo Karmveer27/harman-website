@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import "../Contact/index.css";
@@ -21,7 +22,7 @@ function Contact() {
                     <ContactForm />
                 </Col>
                 <Col lg={5} className="py-5 d-flex justify-content-center align-items-center ">
-                    <div className="image-container">
+                    <div className="c-image-container">
                         <img src="suit1.jpg" alt="Enquire" className='img-fluid rounded' />
                     </div>
                 </Col>
