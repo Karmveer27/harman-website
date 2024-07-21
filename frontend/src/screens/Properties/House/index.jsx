@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './index.css';  // Ensure the CSS is properly linked
+import './index.css';  
 
 function House() {
   return (
