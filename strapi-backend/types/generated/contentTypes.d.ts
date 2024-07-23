@@ -362,77 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiHouseHouse extends Schema.CollectionType {
-  collectionName: 'houses';
-  info: {
-    singularName: 'house';
-    pluralName: 'houses';
-    displayName: 'House';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String;
-    Address: Attribute.String;
-    Description: Attribute.Text;
-    Bedrooms: Attribute.Integer;
-    Bathrooms: Attribute.Integer;
-    Cars: Attribute.Integer;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    isSold: Attribute.Boolean & Attribute.DefaultTo<false>;
-    url: Attribute.String;
-    saleType: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::house.house',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::house.house',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTestimonialTestimonial extends Schema.CollectionType {
-  collectionName: 'testimonials';
-  info: {
-    singularName: 'testimonial';
-    pluralName: 'testimonials';
-    displayName: 'Testimonial';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    Message: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::testimonial.testimonial',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::testimonial.testimonial',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -859,6 +788,108 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomeImageHomeImage extends Schema.SingleType {
+  collectionName: 'home_images';
+  info: {
+    singularName: 'home-image';
+    pluralName: 'home-images';
+    displayName: 'homeImage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-image.home-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-image.home-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHouseHouse extends Schema.CollectionType {
+  collectionName: 'houses';
+  info: {
+    singularName: 'house';
+    pluralName: 'houses';
+    displayName: 'House';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Address: Attribute.String;
+    Description: Attribute.Text;
+    Bedrooms: Attribute.Integer;
+    Bathrooms: Attribute.Integer;
+    Cars: Attribute.Integer;
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isSold: Attribute.Boolean & Attribute.DefaultTo<false>;
+    url: Attribute.String;
+    saleType: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::house.house',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::house.house',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Schema.CollectionType {
+  collectionName: 'testimonials';
+  info: {
+    singularName: 'testimonial';
+    pluralName: 'testimonials';
+    displayName: 'Testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -869,8 +900,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::house.house': ApiHouseHouse;
-      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -879,6 +908,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::home-image.home-image': ApiHomeImageHomeImage;
+      'api::house.house': ApiHouseHouse;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
 }
