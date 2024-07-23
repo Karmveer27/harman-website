@@ -1,40 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import House from './House';
-import { Row, Col, Tab, Nav } from 'react-bootstrap';
-import './index.css';
+import { Row, Col, Tab, Nav } from "react-bootstrap";
+import './index.css'; 
 
 function Properties() {
   const [key, setKey] = useState('for-sale');
   const [houses, setHouses] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:1337/houses')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+    fetch('http://localhost:1337/api/houses')
+      .then((response) => response.json())
       .then((data) => {
-        if (Array.isArray(data)) {
-          setHouses(data);
-        } else {
-          setError('Data format error: Expected an array');
-        }
-      })
-      .catch((error) => {
-        setError(error.message);
-        console.error('Error fetching houses:', error);
+        setHouses(data.data)
       });
   }, []);
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  const forSaleHouses = houses.filter(house => !house.isSold);
-  const soldHouses = houses.filter(house => house.isSold);
 
   return (
     <>
@@ -52,7 +31,7 @@ function Properties() {
         <Tab.Content>
           <Tab.Pane eventKey="for-sale">
             <Row>
-              {forSaleHouses.map(house => (
+              {houses.filter(house => !house.attributes.isSold).map(house => (
                 <Col key={house.id} sm={12} md={6} lg={4} xl={3}>
                   <House house={house} />
                 </Col>
@@ -62,7 +41,7 @@ function Properties() {
 
           <Tab.Pane eventKey="sold">
             <Row>
-              {soldHouses.map(house => (
+              {houses.filter(house => house.attributes.isSold).map(house => (
                 <Col key={house.id} sm={12} md={6} lg={4} xl={3}>
                   <House house={house} />
                 </Col>

@@ -368,6 +368,7 @@ export interface ApiHouseHouse extends Schema.CollectionType {
     singularName: 'house';
     pluralName: 'houses';
     displayName: 'House';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -381,6 +382,8 @@ export interface ApiHouseHouse extends Schema.CollectionType {
     Cars: Attribute.Integer;
     Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     isSold: Attribute.Boolean & Attribute.DefaultTo<false>;
+    url: Attribute.String;
+    saleType: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

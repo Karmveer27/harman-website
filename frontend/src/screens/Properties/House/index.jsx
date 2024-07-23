@@ -1,28 +1,36 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './index.css';
 
 function House({ house }) {
+  const imageUrl = house.attributes.Image && house.attributes.Image.data && house.attributes.Image.data.attributes && house.attributes.Image.data.attributes.url
+    ? `http://localhost:1337${house.attributes.Image.data.attributes.url}`
+    : 'default-image.jpg'; // Path to a default image if no image is provided
+
+  const externalUrl = house.attributes.url ? (house.attributes.url.startsWith('http') ? house.attributes.url : `http://${house.attributes.url}`) : '#';
+
   return (
     <Card className="my-3 p-3 rounded">
-      <Link to={`/houseurl`}>
+      <a href={externalUrl} target="_blank" rel="noopener noreferrer"> {/* Use <a> for external link */}
         <div className="c-image-container">
-          <img src={`http://localhost:1337${house.image.url}`} alt={house.title} className="card-img-top house-img" />
+          <img src={imageUrl} alt={house.attributes.Title} className="card-img-top house-img" />
         </div>
-      </Link>
+      </a>
       <Card.Body>
-        <Link to={`/houseurl`}>
+        <a href={externalUrl} target="_blank" rel="noopener noreferrer"> {/* Use <a> for external link */}
           <Card.Title as="h5" className="mb-3">
-            {house.title}
+            {house.attributes.Title}
           </Card.Title>
-        </Link>
+        </a>
         <Card.Text as="h6" className="mb-2 text-muted">
-          {house.address}
+          {house.attributes.Address}
         </Card.Text>
         <Card.Text as="div">
-          <div>Auction (unless sold prior)</div>
-          <div>{house.bedrooms} Bedrooms / {house.bathrooms} Baths / {house.cars} Cars</div>
+        {!house.attributes.isSold && (
+            <div>{house.attributes.saleType}</div>
+        )}
+          <div>{house.attributes.Bedrooms} Bedrooms / {house.attributes.Bathrooms} Baths / {house.attributes.Cars} Cars</div>
+          
         </Card.Text>
       </Card.Body>
     </Card>
