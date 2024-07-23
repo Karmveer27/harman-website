@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "houses",
+  "info": {
+    "singularName": "house",
+    "pluralName": "houses",
+    "displayName": "House",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Bedrooms": {
+      "type": "integer"
+    },
+    "Bathrooms": {
+      "type": "integer"
+    },
+    "Cars": {
+      "type": "integer"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isSold": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "string"
+    },
+    "saleType": {
+      "type": "string"
+    }
+  }
+}

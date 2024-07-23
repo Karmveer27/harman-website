@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import House from './House';
 import { Row, Col, Tab, Nav } from "react-bootstrap";
 import './index.css';  // Make sure you have the necessary CSS for styling
 
 function Properties() {
   const [key, setKey] = useState('for-sale');
+  const [houses, setHouses] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:1337/api/houses/?populate=*')
+      .then((response) => response.json())
+      .then((data) => setHouses(data.data))
+      .catch((error) => console.error('Error fetching houses:', error));
+  }, []);
 
   return (
     <>
@@ -22,33 +30,21 @@ function Properties() {
         <Tab.Content>
           <Tab.Pane eventKey="for-sale">
             <Row>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
+              {houses.filter(house => !house.attributes.isSold).map(house => (
+                <Col key={house.id} sm={12} md={6} lg={4} xl={3}>
+                  <House house={house} />
+                </Col>
+              ))}
             </Row>
           </Tab.Pane>
 
           <Tab.Pane eventKey="sold">
             <Row>
-              <Col sm={12} md={6} lg={4} xl={3}>
-                <House />
-              </Col>
-              
+              {houses.filter(house => house.attributes.isSold).map(house => (
+                <Col key={house.id} sm={12} md={6} lg={4} xl={3}>
+                  <House house={house} />
+                </Col>
+              ))}
             </Row>
           </Tab.Pane>
         </Tab.Content>
