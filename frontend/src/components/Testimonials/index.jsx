@@ -1,59 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Carousel } from 'react-bootstrap';
 import TestCard from './TestCard';
 
 function Testimonials() {
-    const tempData = [
-        { name: "Zoe Mantis", review: "Great first house, come have a look!" },
-        { name: "Seiko", review: "Great first house, come have a look!" },
-        { name: "Asta Rumi", review: "Great first house, come have a look!" },
-        { name: "Clark Kent", review: "Great first house, come have a look!" },
-        { name: "Bruce Wayne", review: "Great first house, come have a look!" },
-    ];
+  const [testimonials, setTestimonials] = useState([]);
 
-    const chunkSize = 3;
-    const chunkedData = [];
-    for (let i = 0; i < tempData.length; i += chunkSize) {
-        chunkedData.push(tempData.slice(i, i + chunkSize));
-    }
+  useEffect(() => {
+    fetch('http://localhost:1337/api/testimonials')
+      .then((response) => response.json())
+      .then((data) => {
+        setTestimonials(data.data);
+      })
+      .catch((error) => console.error('Error fetching testimonials:', error));
+  }, []);
 
-    return (
-        <>
-           
-            <div className="container py-5 d-none d-lg-block">
-                <h1>Testimonials</h1>
-                <Carousel interval={5000} wrap={true} data-bs-theme="dark">
-                    {chunkedData.map((chunk, chunkIndex) => (
-                        <Carousel.Item key={chunkIndex}>
-                            <Row className="g-5">
-                                {chunk.map((item, index) => (
-                                    <Col key={index} lg={4}>
-                                        <TestCard name={item.name} review={item.review} />
-                                    </Col>
-                                ))}
-                            </Row>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
-            </div>
+  const chunkSize = 3;
+  const chunkedData = [];
+  for (let i = 0; i < testimonials.length; i += chunkSize) {
+    chunkedData.push(testimonials.slice(i, i + chunkSize));
+  }
 
-          
-            <div className="container py-5 d-lg-none">
-                <h1>Testimonials</h1>
-                <Carousel interval={5000} wrap={true} data-bs-theme="dark">
-                    {tempData.map((item, index) => (
-                        <Carousel.Item key={index}>
-                            <Row className="g-5 justify-content-center">
-                                <Col xs={12}>
-                                    <TestCard name={item.name} review={item.review} />
-                                </Col>
-                            </Row>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
-            </div>
-        </>
-    );
+  //console.log('chunkedData:', chunkedData); 
+
+  return (
+    <>
+      <div className="container py-5 d-none d-lg-block">
+        <h1>Testimonials</h1>
+        <Carousel interval={3000} wrap={true} data-bs-theme="dark">
+          {chunkedData.map((chunk, chunkIndex) => (
+            <Carousel.Item key={chunkIndex}>
+              <Row className="g-5">
+                {chunk.map((item) => (
+                  <Col key={item.id} lg={4}>
+                    <TestCard name={item.attributes.Name} review={item.attributes.Message} />
+                  </Col>
+                ))}
+              </Row>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+
+      <div className="container py-5 d-lg-none">
+        <h1>Testimonials</h1>
+        <Carousel interval={3000} wrap={true} data-bs-theme="dark">
+          {testimonials.map((item) => (
+            <Carousel.Item key={item.id}>
+              <Row className="g-5 justify-content-center">
+                <Col xs={12}>
+                  <TestCard name={item.attributes.Name} review={item.attributes.Message} />
+                </Col>
+              </Row>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+    </>
+  );
 }
 
 export default Testimonials;
