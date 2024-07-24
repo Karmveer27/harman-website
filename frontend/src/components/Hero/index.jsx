@@ -5,6 +5,7 @@ import { Row, Col } from "react-bootstrap";
 
 function Hero() {
     const [homeImage,setHomeImage] = useState();
+    
     useEffect(() => {
         fetch('http://localhost:1337/api/home-image/?populate=*')
           .then((response) => response.json())
@@ -12,8 +13,10 @@ function Hero() {
             setHomeImage("http://localhost:1337" + data.data.attributes.image.data.attributes.url)
             //console.log(data.data.attributes.image.data.attributes.url)
           })
-          .catch((error) => console.error('Error fetching houses:', error));
+          .catch((error) => console.error('Error fetching Image:', error));
       }, []);
+
+      
       
     return (
         <Row className="align-items-center min-vh-100 hero-padding">

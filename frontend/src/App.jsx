@@ -7,9 +7,9 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className='d-flex flex-column min-vh-100'>
+    <div className='d-flex flex-column min-vh-100 mb-5'>
       <Header />
-      <main className='flex-grow-1'>
+      <main className='flex-grow-1 mb-5'>
         <Container className=''>
           <Outlet />
         </Container>
