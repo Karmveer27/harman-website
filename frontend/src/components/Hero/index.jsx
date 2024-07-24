@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { Row, Col } from "react-bootstrap";
 
 function Hero() {
+    const [homeImage,setHomeImage] = useState();
+    
+    useEffect(() => {
+        fetch('http://localhost:1337/api/home-image/?populate=*')
+          .then((response) => response.json())
+          .then((data) => {
+            setHomeImage("http://localhost:1337" + data.data.attributes.image.data.attributes.url)
+            //console.log(data.data.attributes.image.data.attributes.url)
+          })
+          .catch((error) => console.error('Error fetching Image:', error));
+      }, []);
+
+      
+      
     return (
         <Row className="align-items-center min-vh-100 hero-padding">
             <Col lg={6} md={12} className="mb-4 mb-lg-0">
@@ -16,7 +30,7 @@ function Hero() {
                 </div>
             </Col>
             <Col lg={6} md={12} className="text-center hero-work-card">
-                <img src="/suit.jpg" alt="Contact" className="img-fluid rounded" />
+                <img src={homeImage} alt="Contact" className="img-fluid rounded" />
             </Col>
         </Row>
     );
