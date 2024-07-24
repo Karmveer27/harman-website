@@ -788,6 +788,36 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactImageContactImage extends Schema.SingleType {
+  collectionName: 'contact_images';
+  info: {
+    singularName: 'contact-image';
+    pluralName: 'contact-images';
+    displayName: 'ContactImage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-image.contact-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-image.contact-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeImageHomeImage extends Schema.SingleType {
   collectionName: 'home_images';
   info: {
@@ -908,6 +938,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::contact-image.contact-image': ApiContactImageContactImage;
       'api::home-image.home-image': ApiHomeImageHomeImage;
       'api::house.house': ApiHouseHouse;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
