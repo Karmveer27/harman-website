@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
 import { useState } from 'react';
-import { Navbar,Container,Nav } from 'react-bootstrap';
-import "../Header/index.css"
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import "../Header/index.css";
 
 function Header() {
     const [activeLink, setActiveLink] = useState('#about');
@@ -12,7 +11,7 @@ function Header() {
     };
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary fixed-top">
+        <Navbar expand="lg" className="bg-body-tertiary fixed-top d-flex justify-content-between">
             <Container fluid>
                 <Navbar.Brand as={Link} to="/" className="ms-3">Harman Singh</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +30,7 @@ function Header() {
                             Properties
                         </Nav.Link>
                     </Nav>
-                    <Nav className="ms-auto me-3">
+                    <Nav>
                         <Nav.Link as={Link} to="/contact" className="nav-link-no-underline" onClick={() => handleSetActiveLink('#')}>
                             <button className="btn btn-warning btn-md">Contact us</button>
                         </Nav.Link>

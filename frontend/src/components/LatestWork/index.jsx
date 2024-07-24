@@ -41,7 +41,7 @@ function LatestWork() {
                 <Col>
                     <Carousel id="carouselExampleInterval" data-bs-theme="dark">
                         {soldHouses.map((house, index) => (
-                            <Carousel.Item key={index} interval={2000} className="carousel-item">
+                            <Carousel.Item key={index} interval={3000} className="carousel-item">
                                 <WorkCard 
                                     imgSrc={`http://localhost:1337${house.attributes.Image.data.attributes.formats.small.url}`} 
                                     description={house.attributes.Description} 
