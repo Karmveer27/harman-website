@@ -18,7 +18,7 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: ['https://harman-website.onrender.com'], // your frontend domain
+      origin: ['http://localhost:5173', 'https://harman-website.onrender.com'], // your frontend domain
     },
   },
   'strapi::poweredBy',
