@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import House from './House';
 import { Row, Col, Tab, Nav } from "react-bootstrap";
-import './index.css';  // Make sure you have the necessary CSS for styling
+import './index.css';  
 
 function Properties() {
   const [key, setKey] = useState('for-sale');
   const [houses, setHouses] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/houses/?populate=*')
+    const urlProxy = import.meta.env.API_URL_PROXY;
+    fetch(urlProxy + 'api/houses/?populate=*')
       .then((response) => response.json())
       .then((data) => setHouses(data.data))
       .catch((error) => console.error('Error fetching houses:', error));
