@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { Row, Col } from "react-bootstrap";
@@ -6,18 +6,27 @@ import { Link } from 'react-router-dom';
 
 function Hero() {
     const [homeImage, setHomeImage] = useState('');
-    
-    useEffect(() => {
-        fetch('http://localhost:1337/api/home-image/?populate=*')
-            .then((response) => response.json())
-            .then((data) => {
-                setHomeImage("http://localhost:1337" + data.data.attributes.image.data.attributes.url);
-                // console.log(data.data.attributes.image.data.attributes.url);
-            })
-            .catch((error) => console.error('Error fetching Image:', error));
-    }, []);
 
+    useEffect(() => {
+        const urlProxy = import.meta.env.VITE_API_URL_PROXY;
+        const apiUrl = `${urlProxy}api/home-image/?populate=*`;
+        //console.log("API URL: " + apiUrl);
+
+        fetch(apiUrl)
+        .then((response) => response.text())
+        .then((text) => {
+        console.log("Raw Response: ", text);
+        return JSON.parse(text);  // this will throw an error if it's not valid JSON
+        })
+        .then((data) => {
+            console.log("Data: ", urlProxy + data.data.attributes.image.data.attributes.url);
+            setHomeImage(urlProxy + data.data.attributes.image.data.attributes.url);
+    })
+    .catch((error) => console.error('Error fetching Hero Image:', error));
+    }, []);
+   
     return (
+        
         <Row className="align-items-center min-vh-100 hero-padding">
             <Col lg={6} md={12} className="mb-4 mb-lg-0">
                 <h1 className="font-weight-bold pb-3">Have Any Questions?</h1>

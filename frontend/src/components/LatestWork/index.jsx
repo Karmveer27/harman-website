@@ -6,9 +6,12 @@ import WorkCard from "./WorkCard";
 
 function LatestWork() {
     const [soldHouses, setSoldHouses] = useState([]);
+    const urlProxy = import.meta.env.VITE_API_URL_PROXY;
 
     useEffect(() => {
-        fetch('http://localhost:1337/api/houses/?populate=*')
+        const apiUrl = `${urlProxy}api/houses/?populate=*`;
+        console.log(apiUrl);
+        fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
             const allHouses = data.data;
@@ -16,7 +19,7 @@ function LatestWork() {
                                             .sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
                                             .slice(0, 3); // Get the last 3 sold houses
             setSoldHouses(tempSoldHouses);
-            console.log(tempSoldHouses)
+            console.log("Latest Houses: " + tempSoldHouses)
           })
           .catch((error) => console.error('Error fetching houses:', error));
       }, []);
@@ -29,7 +32,7 @@ function LatestWork() {
                     {soldHouses.map((house, index) => (
                         <Col key={index} lg={4} md={6} sm={12} className="mb-4">
                             <WorkCard 
-                                imgSrc={`http://localhost:1337${house.attributes.Image.data.attributes.formats.small.url}`} 
+                                imgSrc={urlProxy + (house.attributes?.Image?.data?.attributes?.formats?.small?.url || '')} 
                                 description={house.attributes.Description} 
                             />
                         </Col>
@@ -43,7 +46,7 @@ function LatestWork() {
                         {soldHouses.map((house, index) => (
                             <Carousel.Item key={index} interval={3000} className="carousel-item">
                                 <WorkCard 
-                                    imgSrc={`http://localhost:1337${house.attributes.Image.data.attributes.formats.small.url}`} 
+                                    imgSrc={urlProxy + (house.attributes?.Image?.data?.attributes?.formats?.small?.url || '')} 
                                     description={house.attributes.Description} 
                                 />
                             </Carousel.Item>

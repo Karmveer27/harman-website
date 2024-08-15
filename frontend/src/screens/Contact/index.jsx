@@ -8,11 +8,12 @@ function Contact() {
     const [contactImage, setContactImage] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:1337/api/contact-image/?populate=*')
+        const urlProxy = import.meta.env.API_URL_PROXY;
+        fetch(urlProxy + 'api/contact-image/?populate=*')
             .then((response) => response.json())
             .then((data) => {
                 const imageUrl = data.data.attributes.Image.data.attributes.url;
-                setContactImage("http://localhost:1337" + imageUrl);
+                setContactImage(urlProxy + imageUrl);
             })
             .catch((error) => console.error('Error fetching Image:', error));
     }, []);
