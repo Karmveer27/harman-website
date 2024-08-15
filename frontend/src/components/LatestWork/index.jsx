@@ -9,7 +9,7 @@ function LatestWork() {
     const urlProxy = import.meta.env.VITE_API_URL_PROXY;
 
     useEffect(() => {
-        const apiUrl = `${urlProxy}api/houses/?populate=*`;
+        const apiUrl = `${urlProxy}/api/houses/?populate=*`;
         console.log(apiUrl);
         fetch(apiUrl)
           .then((response) => response.json())

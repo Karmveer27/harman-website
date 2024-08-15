@@ -9,7 +9,7 @@ function Hero() {
 
     useEffect(() => {
         const urlProxy = import.meta.env.VITE_API_URL_PROXY;
-        const apiUrl = `${urlProxy}api/home-image/?populate=*`;
+        const apiUrl = `${urlProxy}/api/home-image/?populate=*`;
         //console.log("API URL: " + apiUrl);
 
         fetch(apiUrl)

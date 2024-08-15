@@ -7,7 +7,7 @@ function Testimonials() {
 
   useEffect(() => {
     const urlProxy = import.meta.env.API_URL_PROXY;
-    fetch(urlProxy + 'api/testimonials')
+    fetch(urlProxy + '/api/testimonials')
       .then((response) => response.json())
       .then((data) => {
         setTestimonials(data.data);
