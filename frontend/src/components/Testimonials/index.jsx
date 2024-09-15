@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Row, Col, Carousel } from 'react-bootstrap';
 import TestCard from './TestCard';
 
@@ -6,13 +6,18 @@ function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    const urlProxy = import.meta.env.API_URL_PROXY;
-    fetch(urlProxy + 'api/testimonials')
-      .then((response) => response.json())
-      .then((data) => {
-        setTestimonials(data.data);
-      })
-      .catch((error) => console.error('Error fetching testimonials:', error));
+      const urlProxy = import.meta.env.VITE_API_URL_PROXY; 
+      const apiUrl = `${urlProxy}/api/testimonials`;
+  
+      fetch(apiUrl)
+          .then((response) => response.text())
+          .then((text) => {
+              return JSON.parse(text);  // this will throw an error if it's not valid JSON
+          })
+          .then((data) => {
+              setTestimonials(data.data);
+          })
+          .catch((error) => console.error('Error fetching testimonials:', error));
   }, []);
 
   const chunkSize = 3;
@@ -21,7 +26,7 @@ function Testimonials() {
     chunkedData.push(testimonials.slice(i, i + chunkSize));
   }
 
-  //console.log('chunkedData:', chunkedData); 
+ 
 
   return (
     <>

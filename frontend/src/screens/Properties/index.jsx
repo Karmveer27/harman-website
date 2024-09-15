@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import House from './House';
 import { Row, Col, Tab, Nav } from "react-bootstrap";
 import './index.css';  
@@ -6,12 +6,22 @@ import './index.css';
 function Properties() {
   const [key, setKey] = useState('for-sale');
   const [houses, setHouses] = useState([]);
-
+  
+  // Fetch houses on component mount
   useEffect(() => {
-    const urlProxy = import.meta.env.API_URL_PROXY;
-    fetch(urlProxy + 'api/houses/?populate=*')
-      .then((response) => response.json())
-      .then((data) => setHouses(data.data))
+    const urlProxy = import.meta.env.VITE_API_URL_PROXY;
+    const apiUrl = `${urlProxy}/api/houses/?populate=*`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setHouses(data.data); // Set the fetched houses data
+      })
       .catch((error) => console.error('Error fetching houses:', error));
   }, []);
 
