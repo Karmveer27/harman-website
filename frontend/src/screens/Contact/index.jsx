@@ -8,8 +8,8 @@ function Contact() {
     const [contactImage, setContactImage] = useState('');
 
     useEffect(() => {
-        const urlProxy = import.meta.env.API_URL_PROXY;
-        fetch(urlProxy + 'api/contact-image/?populate=*')
+        const urlProxy = import.meta.env.VITE_API_URL_PROXY;
+        fetch(urlProxy + '/api/contact-image/?populate=*')
             .then((response) => response.json())
             .then((data) => {
                 const imageUrl = data.data.attributes.Image.data.attributes.url;

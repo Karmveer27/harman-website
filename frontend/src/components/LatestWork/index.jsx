@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { Row, Col, Carousel } from "react-bootstrap";
@@ -7,22 +7,32 @@ import WorkCard from "./WorkCard";
 function LatestWork() {
     const [soldHouses, setSoldHouses] = useState([]);
     const urlProxy = import.meta.env.VITE_API_URL_PROXY;
-
     useEffect(() => {
+        const urlProxy = import.meta.env.VITE_API_URL_PROXY;
         const apiUrl = `${urlProxy}/api/houses/?populate=*`;
-        console.log(apiUrl);
+    
         fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            const allHouses = data.data;
-            const tempSoldHouses = allHouses.filter(house => house.attributes.isSold)
-                                            .sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
-                                            .slice(0, 3); // Get the last 3 sold houses
-            setSoldHouses(tempSoldHouses);
-            console.log("Latest Houses: " + tempSoldHouses)
-          })
-          .catch((error) => console.error('Error fetching houses:', error));
-      }, []);
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const allHouses = data.data;
+                // Access the images from the nested object structure
+                const tempSoldHouses = allHouses
+                .filter(house => house.attributes.isSold) // Filter by sold houses
+                    .map(house => ({
+                        ...house,
+                        imageUrl: house.attributes.Image.data.attributes.formats.small.url, // Access the small image URL
+                    }))
+                    .sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
+                    .slice(0, 3); // Get the last 3 sold houses
+                setSoldHouses(tempSoldHouses);
+            })
+            .catch((error) => console.error('Error fetching houses:', error));
+    }, []);
 
     return (
         <>

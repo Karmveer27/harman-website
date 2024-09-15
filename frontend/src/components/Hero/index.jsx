@@ -10,19 +10,17 @@ function Hero() {
     useEffect(() => {
         const urlProxy = import.meta.env.VITE_API_URL_PROXY;
         const apiUrl = `${urlProxy}/api/home-image/?populate=*`;
-        //console.log("API URL: " + apiUrl);
+        
 
         fetch(apiUrl)
         .then((response) => response.text())
         .then((text) => {
-        console.log("Raw Response: ", text);
         return JSON.parse(text);  // this will throw an error if it's not valid JSON
         })
         .then((data) => {
-            console.log("Data: ", urlProxy + data.data.attributes.image.data.attributes.url);
             setHomeImage(urlProxy + data.data.attributes.image.data.attributes.url);
-    })
-    .catch((error) => console.error('Error fetching Hero Image:', error));
+        })
+        .catch((error) => console.error('Error fetching Hero Image:', error));
     }, []);
    
     return (

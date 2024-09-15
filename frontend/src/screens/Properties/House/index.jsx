@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { FaBed, FaBath, FaCar } from 'react-icons/fa';
 import './index.css';
 
 function House({ house }) {
-  const imageUrl = house.attributes.Image?.data?.attributes?.url
-    ? `http://localhost:1337${house.attributes.Image.data.attributes.url}`
+  const urlProxy = import.meta.env.VITE_API_URL_PROXY;
+  const imageUrl = house.attributes.Image?.data?.attributes?.formats?.small?.url
+    ? `${urlProxy}${house.attributes.Image.data.attributes.formats.small.url}`
     : 'default-image.jpg'; // Path to a default image if no image is provided
 
   const externalUrl = house.attributes.url ? (house.attributes.url.startsWith('http') ? house.attributes.url : `http://${house.attributes.url}`) : '#';
@@ -27,7 +29,7 @@ function House({ house }) {
           {house.attributes.Address}
         </Card.Text>
         <div className="mb-1">
-            <FaBed /> {house.attributes.Bedrooms}  / <FaBath /> {house.attributes.Bathrooms}  / <FaCar /> {house.attributes.Cars} 
+          <FaBed /> {house.attributes.Bedrooms} / <FaBath /> {house.attributes.Bathrooms} / <FaCar /> {house.attributes.Cars}
         </div>
         
         <Card.Text as="div">
