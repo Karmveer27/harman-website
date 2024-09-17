@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Card } from 'react-bootstrap';
 import './index.css'; 
 
@@ -8,9 +9,11 @@ function TestCard({ name, review }) {
         <Card.Title as="div" className="product-title">
           <strong>{name}</strong>
         </Card.Title>
-        <Card.Text as="p">
-          {review}
-        </Card.Text>
+        <div className="testimonial-container">
+          <Card.Text as="p" className="testimonial-text">
+            {review}
+          </Card.Text>
+        </div>
       </Card.Body>
     </Card>
   );

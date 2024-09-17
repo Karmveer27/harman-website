@@ -32,7 +32,7 @@ function Testimonials() {
     <>
       <div className="container py-5 d-none d-lg-block">
         <h1>Testimonials</h1>
-        <Carousel interval={3000} wrap={true} data-bs-theme="dark">
+        <Carousel interval={3000} wrap={true} >
           {chunkedData.map((chunk, chunkIndex) => (
             <Carousel.Item key={chunkIndex}>
               <Row className="g-5">
@@ -49,7 +49,7 @@ function Testimonials() {
 
       <div className="container py-5 d-lg-none">
         <h1>Testimonials</h1>
-        <Carousel interval={3000} wrap={true} data-bs-theme="dark">
+        <Carousel interval={3000} wrap={true} >
           {testimonials.map((item) => (
             <Carousel.Item key={item.id}>
               <Row className="g-5 justify-content-center">
